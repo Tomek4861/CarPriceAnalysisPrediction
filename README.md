@@ -79,7 +79,7 @@ pip install -r requirements.txt
 ## File Descriptions  
 
 ### Data Processing  
-- **`cleaning_correcting.py`** – Functions for data cleaning, removing outliers, and correcting missing values.  
+- `cleaning_correcting.py` – Functions for data cleaning, removing outliers, and correcting missing values.  
 - **`main_data_processing.py`** – Creates the database, loads data from `passats_raw.csv`, and cleans it.  
 
 ### Web Scraping  
