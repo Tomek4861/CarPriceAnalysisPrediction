@@ -1,20 +1,17 @@
 
 # Car Price Analysis and Prediction
-## Introduction
+## Overview  
 
-This project involves analyzing and predicting the prices of Volkswagen Passat B8 cars based on various features. The data is gathered from Otomoto, a popular car listing site in Poland. The analysis includes data cleaning, correction, visualization, and predictive modeling.
+This project analyzes and predicts prices of **Volkswagen Passat B8** cars based on various features.  
+It uses data from **Otomoto**, a popular Polish car listing site, and applies **data cleaning, visualization, and machine learning models** to make price predictions.  
 
 
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Instructions](#instructions)
-   - [Installation](#installation)
-   - [Data Processing](#data-processing)
-   - [Predictive Modeling](#predictive-modeling)
-   - [Data Scraping](#data-scraping)
-3. [File Descriptions](#file-descriptions)
-4. [Detailed Information](#detailed-information)
-5. [License](#license)
+## Features  
+
+- **Web Scraping**: Collects car data from Otomoto  
+- **Data Cleaning & Processing**: Removes outliers, fills missing values, and standardizes features  
+- **Exploratory Data Analysis**: Generates visualizations and a data profiling report  
+- **Predictive Modeling**: Compares multiple regression models to predict car prices  
 
 
 
@@ -22,37 +19,39 @@ This project involves analyzing and predicting the prices of Volkswagen Passat B
 
 ### Installation
 
-To set up the project, you need to install all the required dependencies. You can do this by running:
+
+To set up the project, install all required dependencies:  
 
 ```bash
 pip install -r requirements.txt
-```
+```  
+
 
 ### Data Processing
 
 #### Steps:
-1. Ensure you have MySQL installed and running on your device.
-2. Create a `.env` file in the root directory of your project and add the following content with your MySQL connection details:
+1. Ensure MySQL is installed and running.  
+2. Create a `.env` file in the root directory with the following content:  
 
    ```plaintext
    DB_HOST=localhost
    DB_USER=root
    DB_PASSWORD=YourPasswordHere
    DB_NAME=car_prices
-    ```
-3. Set up the MySQL connection details in the `utils.py` file.
-4. Run the data processing script to create the database and table, and load the raw data:
+   ```  
+3. Configure MySQL connection details in `utils.py`.  
+4. Run the data processing script to create the database, clean data, and store it:  
 
    ```bash
    python main_data_processing.py
-   ```
+   ```  
 
-   This will create a table `passats` in the database with cleaned and corrected data.
+   This will create a `passats` table in the database with cleaned data.  
 
 ### Predictive Modeling
 
 #### Steps:
-1. Run the training script to train and evaluate different regression models:
+1. Train and evaluate regression models:  
 
    ```bash
    python main_training.py
@@ -63,60 +62,45 @@ pip install -r requirements.txt
 ### Data Scraping
 
 #### Steps:
-1. Run the category scraper to gather links to car listings:
+1. Scrape car listing URLs:  
 
    ```bash
    python otomoto_category_scraper.py
    ```
 
-2. Run the car page scraper to scrape car details from the gathered links and upload them to the database:
+2. Scrape detailed car data and upload it to the database:  
 
    ```bash
    python otomoto_car_page_scraper.py
    ```
 
-   This will populate the database with detailed car listings.
+   This will populate the database with car listings.  
 
-## File Descriptions
+## File Descriptions  
 
-#### `cleaning_correcting.py`
-Contains functions for cleaning and correcting car data, such as removing outliers, assigning missing origins, and correcting engine capacities and powers.
+### Data Processing  
+- **`cleaning_correcting.py`** – Functions for data cleaning, removing outliers, and correcting missing values.  
+- **`main_data_processing.py`** – Creates the database, loads data from `passats_raw.csv`, and cleans it.  
 
-#### `main_data_processing.py`
-Creates the MySQL database and `passats` table, uploads data from `passats_raw.csv`, and performs a series of data cleaning and correction operations to update the table contents.
+### Web Scraping  
+- **`otomoto_category_scraper.py`** – Scrapes car listing URLs from Otomoto.  
+- **`otomoto_car_page_scraper.py`** – Extracts car details from scraped URLs and saves them to the database.  
 
-#### `otomoto_category_scraper.py`
-Fetches links to car listings from Otomoto categories and saves them to a file.
+### Machine Learning  
+- **`main_training.py`** – Trains and evaluates different regression models.  
 
-#### `otomoto_car_page_scraper.py`
-Scrapes car listing details from links in `urls.txt` and uploads them to the database.
+### Utilities & Reports  
+- **`profiling.py`** – Generates a **data profiling report**.  
+- **`visualization.py`** – Creates **plots and charts** for data analysis.  
+- **`utils.py`** – Database connection and helper functions.  
 
-#### `passats.csv`
-CSV file containing data on Volkswagen Passat B8 cars used for analysis and model training.
+### Data Files  
+- **`passats.csv`** – Cleaned dataset used for model training.  
+- **`passats_raw.csv`** – Raw data before preprocessing.  
 
-#### `passats_data_profiling_report.html`
-Contains a detailed data profiling report generated by ydata_profiling for Volkswagen Passat cars.
-
-#### `passats_raw.csv`
-Contains raw data on Volkswagen Passat cars collected before data cleaning and correction.
-
-#### `profiling.py`
-Script used to generate the ydata_profiling report.
-
-#### `training_best.py`
-Script for training and evaluating different regression models, comparing their performance.
-
-#### `utils.py`
-Contains utility functions for managing the MySQL database, including the `DBConnector` class for handling connections, inserts, fetches, and backups.
-
-#### `visualization.py`
-Contains functions for generating plots from car data, including distributions of prices, years, mileages, technical parameters, and a correlation matrix.
-
-#### `README.md`
-This file, containing the project description and instructions.
 
 ## Detailed Information
-For detailed experiment procedures and conclusions, refer to the `raport.pdf` file.
+For experiment details and conclusions, see the [Report](raport.pdf).  
 
 ## License
 
