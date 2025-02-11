@@ -80,23 +80,23 @@ pip install -r requirements.txt
 
 ### Data Processing  
 - `cleaning_correcting.py` – Functions for data cleaning, removing outliers, and correcting missing values.  
-- **`main_data_processing.py`** – Creates the database, loads data from `passats_raw.csv`, and cleans it.  
+- `main_data_processing.py` – Creates the database, loads data from `passats_raw.csv`, and cleans it.  
 
 ### Web Scraping  
-- **`otomoto_category_scraper.py`** – Scrapes car listing URLs from Otomoto.  
-- **`otomoto_car_page_scraper.py`** – Extracts car details from scraped URLs and saves them to the database.  
+- `otomoto_category_scraper.py` – Scrapes car listing URLs from Otomoto.  
+- `otomoto_car_page_scraper.py` – Extracts car details from scraped URLs and saves them to the database.  
 
 ### Machine Learning  
-- **`main_training.py`** – Trains and evaluates different regression models.  
+- `main_training.py` – Trains and evaluates different regression models.  
 
 ### Utilities & Reports  
-- **`profiling.py`** – Generates a **data profiling report**.  
-- **`visualization.py`** – Creates **plots and charts** for data analysis.  
-- **`utils.py`** – Database connection and helper functions.  
+- `profiling.py` – Generates a **data profiling report**.  
+- `visualization.py` – Creates **plots and charts** for data analysis.  
+- `utils.py` – Database connection and helper functions.  
 
 ### Data Files  
-- **`passats.csv`** – Cleaned dataset used for model training.  
-- **`passats_raw.csv`** – Raw data before preprocessing.  
+- `passats.csv` – Cleaned dataset used for model training.  
+- `passats_raw.csv` – Raw data before preprocessing.  
 
 
 ## Detailed Information
